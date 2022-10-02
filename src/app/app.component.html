@@ -1,0 +1,24 @@
+<p>hello</p>
+<ng-select [items]="transactionType" 
+           bindLabel="name" 
+           bindValue="name" 
+           [(ngModel)]="selectedBank"
+           (change)	="filterFunction($event)">
+</ng-select>
+
+<!-- <div *ngIf="selectedValue == 'pos'">pos</div>
+<div *ngIf="selectedValue == 'gtb'">gtb</div>
+<div *ngIf="selectedValue == 'interbank'">interbank</div> -->
+<div *ngIf="!selectedOption">
+    <div  *ngFor="let history of transactionHistory" >
+        <p>{{history.narration}}</p>
+    
+    </div>
+</div>
+
+<div *ngIf="selectedOption">
+    <div  *ngFor="let history of newArray" >
+        <p>{{history.narration}}</p>
+    
+    </div>
+</div>
