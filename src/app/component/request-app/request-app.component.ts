@@ -10,7 +10,7 @@ import {
 } from '@angular/forms';
 import { RequestServiceService } from 'src/app/services/request-service.service';
 
-export interface PeriodicElement {
+export interface requestModel {
   RequestType: string;
   DateAndTime : Date;
   RequestChannel: string;
@@ -36,7 +36,7 @@ export class RequestAppComponent implements OnInit, AfterViewInit {
     'Date',
     'Status',
   ];
-  dataSource = new MatTableDataSource<PeriodicElement>(this.allRequests.getRequests());
+  dataSource = new MatTableDataSource<requestModel>(this.allRequests.getRequests());
 
   @ViewChild(MatPaginator)
 
@@ -49,16 +49,10 @@ export class RequestAppComponent implements OnInit, AfterViewInit {
         this.applyDateFilter();
       }
      });
-     
-    //  this.newForm.get('amount1').valueChanges.subscribe((val) => {
-    //   this.name = val;
-    // });
   }
-
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-   
   }
 
 
