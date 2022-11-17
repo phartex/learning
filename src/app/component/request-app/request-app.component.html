@@ -1,5 +1,30 @@
+<div class="nav-container" >
 
-<div style="display: flex;justify-content: end;margin-top: 5em;">
+  <div class="" >
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link *ngFor="let link of links" [routerLink]="[
+          '/request-app',
+          link.route
+        ]" routerLinkActive="active-link">
+        {{ link.routeDescription }}
+      </a>
+    </nav>
+    
+  </div>
+  <div>
+
+  </div>
+  
+</div>
+
+<div class="" style="margin-top:3em ;">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+<!-- <div style="display: flex;justify-content: end;margin-top: 5em;">
   <form [formGroup]="filterForm" >
     <div style="display: flex;justify-content: space-between;">
         <div>
@@ -26,44 +51,5 @@
 
  </form>
  
-</div>
-<div class="mat-elevation-z8" style="font-weight: 600;">
-    <table mat-table [dataSource]="dataSource" style="width: 100%;">
-  
-      <ng-container matColumnDef="RequestType">
-        <th mat-header-cell *matHeaderCellDef> Request Type </th>
-        <td mat-cell *matCellDef="let element"> {{element.RequestType}} </td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-     
-  
-      <ng-container matColumnDef="DateAndTime">
-        <th mat-header-cell *matHeaderCellDef> Date and Time </th>
-        <td mat-cell *matCellDef="let element"> {{element.DateAndTime |  date: 'dd/MM/yyyy'}} </td>
-      </ng-container>
-  
-  
-      <ng-container matColumnDef="RequestChannel">
-        <th mat-header-cell *matHeaderCellDef> Request Channel </th>
-        <td mat-cell *matCellDef="let element"> {{element.RequestChannel}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Date">
-        <th mat-header-cell *matHeaderCellDef>Expected Resolution Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.Date |  date: 'dd/MM/yyyy'}} </td>
-      </ng-container>
-  
-
-      <ng-container matColumnDef="Status">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
-        <td mat-cell *matCellDef="let element">{{element.Status}}</td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="color: red;"></tr>
-    </table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
-    </mat-paginator>
-  </div>
+</div> -->
+<!--    -->

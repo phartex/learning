@@ -43,6 +43,7 @@ export class AppComponent implements OnInit {
     this.selectedOption = false;
   }
 
+ 
 
   filterFunction(value: any) {
     this.selectedOption = true;

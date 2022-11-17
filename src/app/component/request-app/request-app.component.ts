@@ -8,7 +8,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { RequestServiceService } from 'src/app/services/request-service.service';
+import { RequestService } from 'src/app/services/request-service.service';
 
 export interface requestModel {
   RequestType: string;
@@ -27,61 +27,43 @@ export interface requestModel {
 @Injectable()
 export class RequestAppComponent implements OnInit, AfterViewInit {
   public filterForm!: FormGroup;
-  formValue: any;
-  displayedColumns: string[] = [
 
-    'RequestType',
-    'DateAndTime',
-    'RequestChannel',
-    'Date',
-    'Status',
+  
+ 
+  public links = [
+    {
+      route: 'all-request',
+      routeDescription: 'All',
+    },
+    {
+      route: 'cheque-book',
+      routeDescription: 'Cheque Book',
+    },
+    {
+      route: 'card-request',
+      routeDescription: 'Card Request',
+    },
+    {
+      route: 'dispense-error',
+      routeDescription: 'Dispense Error',
+    },
   ];
-  dataSource = new MatTableDataSource<requestModel>(this.allRequests.getRequests());
 
   @ViewChild(MatPaginator)
 
   paginator!: MatPaginator;
 
   ngOnInit(): void {
-    this.createFilterForm();
-    this.filterForm.valueChanges.subscribe((val)=>{
-      if(this.filterForm.valid){
-        this.applyDateFilter();
-      }
-     });
+ 
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+   
   }
 
 
   constructor(public modal: MatDialog, private fb: FormBuilder,
-    private allRequests: RequestServiceService) { }
+    private allRequests: RequestService) { }
 
-  createFilterForm() {
-    this.filterForm = this.fb.group({
-      fromDate: ['', Validators.required],
-      toDate: ['', Validators.required],
-
-    });
-  };
-
-  applyDateFilter() {
-    console.log(this.filterForm.value);
-    this.dataSource.data = this.allRequests.getRequests();
-    this.dataSource.data = this.dataSource.data.filter(e=> e.Date >= this.filterForm.value.fromDate && e.Date <= this.filterForm.value.toDate);
-
-  };
-
-  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement) {
-    console.log(dateRangeStart.value);
-    console.log(dateRangeEnd.value);
-  }
-
-  register(){
-    this.formValue = this.filterForm.value
-    console.log('form submitted now')
-    console.log(this.formValue);
-  }
+ 
 }

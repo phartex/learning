@@ -13,7 +13,7 @@ import { CustomMaterialModule } from './shared/custom-material/custom-material.m
 @NgModule({
   declarations: [
     AppComponent,
-    RequestAppComponent,
+    
   ],
   imports: [
     BrowserModule,
