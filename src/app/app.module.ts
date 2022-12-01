@@ -9,10 +9,14 @@ import { RequestAppComponent } from './component/request-app/request-app.compone
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModuleModule } from './shared/shared-module/shared-module.module';
 import { CustomMaterialModule } from './shared/custom-material/custom-material.module';
+import { MovieComponent } from './component/movie/movie.component';
+import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarComponent,
     
   ],
   imports: [
@@ -23,7 +27,8 @@ import { CustomMaterialModule } from './shared/custom-material/custom-material.m
     NgSelectModule,
     BrowserAnimationsModule,
     SharedModuleModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

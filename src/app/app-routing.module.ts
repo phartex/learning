@@ -6,12 +6,21 @@ import { RequestAppComponent } from './component/request-app/request-app.compone
 
 const routes: Routes = [
   {
-    path :'',
-    component : HomeComponent
+    path: '',
+    redirectTo: 'movies',
+    pathMatch :'full'
   },
   {
-    path : 'request-app',
-    loadChildren:()=>import('./component/request-app/request-app.module').then(m => m.RequestAppModule)
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'request-app',
+    loadChildren: () => import('./component/request-app/request-app.module').then(m => m.RequestAppModule)
+  },
+  {
+    path:'movies',
+    loadChildren: () => import('./component/movie/movie.module').then(m => m.MovieModule)
   }
 ];
 

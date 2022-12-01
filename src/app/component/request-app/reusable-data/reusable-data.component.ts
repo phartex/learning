@@ -38,7 +38,6 @@ export class ReusableDataComponent implements OnInit {
     'Status',
   ];
 
-
   dataSource: any;
 
   @ViewChild(MatPaginator, { static: true })

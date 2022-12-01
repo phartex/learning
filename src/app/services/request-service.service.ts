@@ -35,8 +35,6 @@ export class RequestService {
       { RequestType: "Dispense Error", DateAndTime: new Date('01/16/2021'), RequestChannel: "Actions", Date: new Date('02/21/2021'), Status: "Ongoing" },
       { RequestType: "Dispense Error", DateAndTime: new Date('01/16/2021'), RequestChannel: "Actions", Date: new Date('01/23/2021'), Status: "Ongoing" },
       { RequestType: "Dispense Error", DateAndTime: new Date('01/16/2021'), RequestChannel: "Actions", Date: new Date('02/16/2021'), Status: "Ongoing" },
-
-
     ];
   }
 }
